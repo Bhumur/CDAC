@@ -1,4 +1,5 @@
 import { useState } from "react"
+import PrintTable from "./PrintTable"
 
 export default function Movies(){
     var [movieName, setMovieName] = useState("")
@@ -19,18 +20,35 @@ export default function Movies(){
     }
     function movietype(e){
         if(e.target.checked){
-            
+            setMovieType([...movieType, e.target.value])
+        }else{
+            setMovieType(movieType.filter((item)=>item!=e.target.value))
         }
     }
     return (
         <div>
-            <input type="text" placeholder="Movie Name" onChange={(e)=>{setMovieName(e.target.value)}} />
-            <input type="text" placeholder="Actor Name" onChange={(e)=>{setActor(e.target.value)}} />
-            <input type="date" onChange={(e)=>{setRelease(e.target.value)}} />
-            <input type="checkbox" value="" onChange={(e)=>{setMovieType(e.target.value)}} />
-            <input type="checkbox" value="" onChange={(e)=>{setMovieType(e.target.value)}} />
-            <input type="checkbox" value="" onChange={(e)=>{setMovieType(e.target.value)}} />
-            <input type="text" onChange={(e)=>{setState(e.target.value)}} />
+            Movie Name   :  <input type="text" placeholder="Movie Name" onChange={(e)=>{setMovieName(e.target.value)}} /> 
+            <br/>
+            Actor Name   :  <input type="text" placeholder="Actor Name" onChange={(e)=>{setActor(e.target.value)}} />
+            <br/>
+            Release Data :  <input type="date" onChange={(e)=>{setRelease(e.target.value)}} />
+            <br/>
+                2D          <input type="checkbox" value="2D" onChange={(e)=>{movietype(e)}} />
+            <br/>
+                3D          <input type="checkbox" value="3D" onChange={(e)=>{movietype(e)}} />
+            <br/>
+                5D          <input type="checkbox" value="5D" onChange={(e)=>{movietype(e)}} />
+            <br/>
+            <select onChange={(e)=>{setState(e.target.value)}}>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Punjab">Punjab</option>
+            </select>
+            <br/>
+            <button onClick={()=>{addMovie()}}>Submit</button>
+
+            <PrintTable data = {movie}/>
         </div>
         
     )
