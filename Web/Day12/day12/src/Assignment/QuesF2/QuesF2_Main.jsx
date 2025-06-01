@@ -9,7 +9,8 @@ export default function QuesF2_Main(){
     var [num2, setNum2] = useState(0);
     var [type, setType] = useState()
 
-    function symbole(sign){
+    function symbole(sign,e){
+        e.preventDefault();
         if(sign=="+"){
             setType(<Addition nums={[num1,num2]}/>)
         }else if(sign=="-"){
@@ -22,14 +23,14 @@ export default function QuesF2_Main(){
     }
     return (
         <div>
-                {/* <form action=""> */}
+                <form action="">
                     <input type="text" placeholder="Number 1" onBlur={(e)=>setNum1(Number(e.target.value))}/>
                     <input type="text" placeholder="Number 2" onBlur={(e)=>setNum2(Number(e.target.value))}/>
-                    <button onClick={()=>{setType("+"); symbole("+")}}>+</button>
-                    <button onClick={()=>{setType("-"); symbole("-")}}>-</button>
-                    <button onClick={()=>{setType("*"); symbole("*")}}>*</button>
-                    <button onClick={()=>{setType("/"); symbole("/")}}>/</button>
-                {/* </form> */}
+                    <button onClick={(e)=>{symbole("+",e)}}>+</button>
+                    <button onClick={(e)=>{symbole("-",e)}}>-</button>
+                    <button onClick={(e)=>{symbole("*",e)}}>*</button>
+                    <button onClick={(e)=>{symbole("/",e)}}>/</button>
+                </form>
                 
                 
                 {type}
