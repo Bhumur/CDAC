@@ -4,7 +4,9 @@
 // import QuesF1D_Main from "./Assignment/QuesF1D/QuesF1D_Main";
 // import QuesF2_Main from "./Assignment/QuesF2/QuesF2_Main";
 // import QuesF3_Main from "./Assignment/QuesF3/QuesF3_Main";
-import QuesF4_Main from "./Assignment/QuesF4/QuesF4_Main";
+// import QuesF4_Main from "./Assignment/QuesF4/QuesF4_Main";
+
+import Main from "./Practice/Main";
 
 function App() {
   return (
@@ -15,7 +17,8 @@ function App() {
       {/* <QuesF1D_Main/> */}
       {/* <QuesF2_Main/> */}
       {/* <QuesF3_Main /> */}
-      <QuesF4_Main/>
+      {/* <QuesF4_Main/> */}
+      <Main/>
     </>
   );
 }
